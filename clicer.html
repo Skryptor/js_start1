@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <title>кликер</title>
+    </head>
+    <body>
+        <p id="clicer">кликер 0</p>
+        <p id="clickSpeed">Скорость клика: 0.00</p>
+        <img id="img" src="https://wallpapers.com/images/hd/chocolate-chip-cookie-transparent-background-vxbbvdaufmkr5554.png" width="200" height="200">
+
+
+        
+        <script type="text/javascript">
+            const img = document.getElementById("img");
+            const clicer = document.getElementById("clicer");
+            const speed = document.getElementById("clickSpeed");
+
+            let isEnlarged  = true;
+            let clicerCount = 0;
+            let lastClick = 0;
+
+            img.onclick = () => {
+                const now = Date.now();
+
+                if(lastClick > 0){
+                    const timeDiff = (now - lastClick) / 1000;
+                    const clickPerSecond = 1 / timeDiff;
+
+                    speed.textContent = `Скорость кликов ${clickPerSecond}`
+                };
+                
+                lastClick = now
+                clicerCount++
+                clicer.textContent = `Всего кликов ${clicerCount}`;
+                if (isEnlarged) {
+                    img.width *= 1.3;
+                    img.height *= 1.3;
+                }
+                else{
+                    img.width /= 1.3;
+                    img.height /= 1.3;
+                };
+                isEnlarged = !isEnlarged;
+            
+            };
+        </script>   
+    </body>
+    </html>
