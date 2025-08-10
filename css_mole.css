@@ -1,0 +1,60 @@
+.game {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.info {
+  margin-bottom: 20px;
+  font-size: 1.2em;
+}
+
+.holes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.hole {
+  width: 150px;
+  height: 150px;
+  background: #8B4513;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.mole {
+  width: 70%;
+  height: 70%;
+  background:url('https://avatars.mds.yandex.net/i?id=110e6a2cf2fe77ea63bcd44fbfffa214b43ae67a-8555038-images-thumbs&ref=rim&n=33&w=129&h=200');
+  border-radius: 70%;
+  position: absolute;
+  bottom: -100%;
+  left: 15%;
+  transition: bottom 0.3s ease;
+}
+
+@keyframes appear {
+  0% { transform: translateY(100%); }
+  100% { transform: translateY(0); }
+}
+
+.mole:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.mole.up {
+  bottom: 0;
+  animation: appear 0.3s ease-out;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1em;
+  margin-top: 20px;
+  cursor: pointer;
+}
